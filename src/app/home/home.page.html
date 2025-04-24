@@ -1,20 +1,36 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content fullscreen class="sin-scroll">
+  <!-- 6 botones grandes -->
+  <div class="grid-botones">
+    <div
+      class="boton-grande"
+      *ngFor="let item of temaSeleccionado"
+      (click)="reproducirSonido(item)"
+    >
+      <img [src]="item.imagen" alt="imagen-boton" />
+    </div>
+  </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Botones flotantes inferiores -->
+  <div class="botones-flotantes-horizontales">
+    <!-- Tema -->
+    <div class="flotante-horizontal">
+      <ion-button (click)="cambiarTema()">
+        <img [src]="temaImagen" />
+      </ion-button>
+    </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <!-- Idioma -->
+    <div class="flotante-horizontal">
+      <ion-button (click)="seleccionarIdioma()">
+        <img [src]="idiomaImagen" />
+      </ion-button>
+    </div>
+
+    <!-- Cerrar sesión -->
+    <div class="flotante-horizontal">
+      <ion-button color="danger" (click)="cerrarSesion()">
+        <img src="assets/icons/logout.png" />
+      </ion-button>
+    </div>
   </div>
 </ion-content>
