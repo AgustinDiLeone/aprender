@@ -1,0 +1,7 @@
+{
+  "name": "idiomas-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
