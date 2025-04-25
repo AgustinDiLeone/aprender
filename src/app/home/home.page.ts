@@ -9,6 +9,7 @@ import {
   IonIcon,
 } from '@ionic/angular/standalone';
 import { SpinnerService } from '../services/spinner.service';
+import { UtilService } from '../services/util';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ import { SpinnerService } from '../services/spinner.service';
 })
 export class HomePage {
   private sppiner = inject(SpinnerService);
+  private util = inject(UtilService);
   // URLs base para los archivos
   url_colores = '/assets/imagen-color/';
   url_animales = '/assets/imagen-animal/';
@@ -226,7 +228,7 @@ export class HomePage {
   }
 
   cerrarSesion() {
-    console.log('Cerrando sesión...');
-    // Redirigir al login o cerrar sesión con Firebase/AuthService
+    this.sppiner.mostrar();
+    this.util.routerLink('/login');
   }
 }

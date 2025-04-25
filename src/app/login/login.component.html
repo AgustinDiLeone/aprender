@@ -1,55 +1,20 @@
-<div class="main">
+<div class="login-container">
   <h1>Iniciar Sesión</h1>
 
-  <form [formGroup]="form" (ngSubmit)="login()">
-    <!-- Campo de correo -->
-    <label for="email">Correo</label>
-    <input
-      type="email"
-      formControlName="email"
-      id="email"
-      placeholder="Ingrese su correo"
-    />
-    <div
-      class="validators"
-      *ngIf="form.get('email')?.errors && form.get('email')?.touched"
-    >
-      <div *ngIf="form.get('email')?.errors?.['required']">
-        Ingrese un correo
-      </div>
-      <div *ngIf="form.get('email')?.errors?.['email']">
-        Ingrese un correo válido
-      </div>
-    </div>
-
-    <!-- Campo de contraseña -->
-    <label for="password">Contraseña</label>
+  <form [formGroup]="form" (ngSubmit)="login()" class="login-form">
+    <input type="email" formControlName="email" placeholder="Correo" />
     <input
       type="password"
       formControlName="password"
-      id="password"
-      placeholder="Ingrese su clave"
+      placeholder="Contraseña"
     />
-    <div
-      class="validators"
-      *ngIf="form.get('password')?.errors && form.get('password')?.touched"
-    >
-      <div *ngIf="form.get('password')?.errors?.['required']">
-        Ingrese una contraseña
-      </div>
-      <div *ngIf="form.get('password')?.errors?.['minlength']">
-        Ingrese al menos 6 caracteres
-      </div>
-    </div>
-
-    <!-- Botón de ingreso -->
-    <button type="submit" [disabled]="form.invalid">Ingresar</button>
+    <button type="submit" class="btn-login">Ingresar</button>
   </form>
 
-  <!-- Botones de usuarios predefinidos -->
-  <div class="button-group">
-    <button type="button" (click)="ingresarAdmin()">Administrador</button>
-    <button type="button" (click)="ingresarProp()">Invitado</button>
-    <button type="button" (click)="ingresarUser()">Usuario</button>
+  <div class="user-buttons">
+    <button type="button" (click)="ingresarAdmin()">👮‍♂️</button>
+    <button type="button" (click)="ingresarProp()">🧢</button>
+    <button type="button" (click)="ingresarUser()">🙋</button>
   </div>
+  <div class="scanlines"></div>
 </div>

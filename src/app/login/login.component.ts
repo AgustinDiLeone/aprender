@@ -44,12 +44,36 @@ export class LoginComponent implements OnInit {
         const authResponse = await this.authServise.logIn({ email, password });
         if (authResponse.error) throw authResponse.error;
         this.spinner.mostrar();
+        this.form.reset();
         this.util.routerLink('/home');
       } catch (error) {
         console.log(error);
         this.alerta.mostrar('Correo y/o contraseña incorrectos', 'error');
       }
     } else {
+      const emailErrors = this.form.get('email')?.errors;
+      const passwordErrors = this.form.get('password')?.errors;
+
+      if (emailErrors) {
+        if (emailErrors['required']) {
+          this.alerta.mostrar('El correo es obligatorio', 'error');
+        }
+        if (emailErrors['email']) {
+          this.alerta.mostrar('El correo no tiene un formato válido', 'error');
+        }
+      }
+
+      if (passwordErrors) {
+        if (passwordErrors['required']) {
+          this.alerta.mostrar('La contraseña es obligatoria', 'error');
+        }
+        if (passwordErrors['minlength']) {
+          this.alerta.mostrar(
+            'La contraseña debe tener al menos 6 caracteres',
+            'error'
+          );
+        }
+      }
       console.error('Formulario inválido');
     }
   }
