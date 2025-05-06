@@ -73,3 +73,82 @@ ion-content {
     height: 80%;
   }
 }
+.flotante-temas {
+  position: relative;
+
+  .panel-temas-horizontal {
+    position: absolute;
+    bottom: 100%; // Justo arriba del botón
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 8px 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+  }
+
+  .tema-opcion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+.fondo-translucido {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo negro con opacidad */
+  z-index: 999; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.panel-temas-horizontal {
+  position: absolute;
+  bottom: 85px;
+  left: 0;
+  width: 100%; /* igual al ancho del botón contenedor */
+  background-color: transparent; /* fondo azul */
+  border-radius: 12px;
+  padding: 10px 0;
+  z-index: 1001; /* Asegúrate de que el panel esté por encima del fondo translúcido */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.panel-temas-horizontal .tema-opcion {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

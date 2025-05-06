@@ -12,18 +12,57 @@
 
   <!-- Botones flotantes inferiores -->
   <div class="botones-flotantes-horizontales">
-    <!-- Tema -->
+    <!-- Botón flotante que despliega los temas -->
     <div class="flotante-horizontal">
-      <ion-button (click)="cambiarTema()">
-        <img [src]="temaImagen" />
+      <ion-button (click)="mostrarTemas = !mostrarTemas">
+        <img [src]="temaImagen" alt="Tema actual" />
+      </ion-button>
+    </div>
+    <!-- Fondo translúcido para toda la pantalla -->
+    <div
+      class="fondo-translucido"
+      *ngIf="mostrarTemas"
+      (click)="mostrarTemas = false"
+    ></div>
+
+    <!-- Panel horizontal justo arriba del botón -->
+    <div class="panel-temas-horizontal" *ngIf="mostrarTemas">
+      <div class="tema-opcion" (click)="seleccionarTema('colores')">
+        <img src="/assets/botones/colores.png" alt="Colores" />
+      </div>
+      <div class="tema-opcion" (click)="seleccionarTema('animales')">
+        <img src="/assets/botones/animales.avif" alt="Animales" />
+      </div>
+      <div class="tema-opcion" (click)="seleccionarTema('numeros')">
+        <img src="/assets/botones/numeros.png" alt="Números" />
+      </div>
+    </div>
+
+    <!-- Botón flotante que despliega los idiomas -->
+    <div class="flotante-horizontal">
+      <ion-button (click)="mostrarIdiomas = !mostrarIdiomas">
+        <img [src]="idiomaImagen" />
       </ion-button>
     </div>
 
-    <!-- Idioma -->
-    <div class="flotante-horizontal">
-      <ion-button (click)="seleccionarIdioma()">
-        <img [src]="idiomaImagen" />
-      </ion-button>
+    <!-- Fondo translúcido para toda la pantalla (Idiomas) -->
+    <div
+      class="fondo-translucido"
+      *ngIf="mostrarIdiomas"
+      (click)="mostrarIdiomas = false"
+    ></div>
+
+    <!-- Panel vertical de idiomas -->
+    <div class="panel-temas-horizontal" *ngIf="mostrarIdiomas">
+      <div class="tema-opcion" (click)="seleccionarIdioma()">
+        <img src="assets/botones/idioma-español.png" alt="Español" />
+      </div>
+      <div class="tema-opcion" (click)="seleccionarIdioma()">
+        <img src="assets/botones/idioma-ingles.jpg" alt="Inglés" />
+      </div>
+      <div class="tema-opcion" (click)="seleccionarIdioma()">
+        <img src="assets/botones/idioma-portugues.png" alt="Portugués" />
+      </div>
     </div>
 
     <!-- Cerrar sesión -->

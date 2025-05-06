@@ -163,12 +163,19 @@ export class HomePage {
     },
   ];
 
+  mostrarTemas = false;
+  mostrarIdiomas = false;
+  temas = [
+    { nombre: 'colores', imagen: '/assets/botones/colores.png' },
+    { nombre: 'animales', imagen: '/assets/botones/animales.avif' },
+    { nombre: 'numeros', imagen: '/assets/botones/numeros.png' },
+  ];
   temaActual: 'colores' | 'animales' | 'numeros' = 'colores';
   temaImagen = '/assets/botones/colores.png';
   temaSeleccionado = this.colores;
   idiomaSeleccionado: 'es' | 'in' | 'pg' = 'es';
   idiomaImagen = 'assets/botones/idioma-español.png';
-
+  /*
   cambiarTema() {
     if (this.temaActual === 'colores') {
       this.sppiner.mostrar();
@@ -186,6 +193,26 @@ export class HomePage {
       this.temaImagen = '/assets/botones/colores.png';
       this.temaSeleccionado = this.colores;
     }
+    console.log('Tema cambiado a:', this.temaActual);
+  }*/
+  seleccionarTema(nombre: any) {
+    this.sppiner.mostrar(); // tu spinner
+    this.temaActual = nombre;
+    this.temaImagen = this.temas.find((t) => t.nombre === nombre)?.imagen || '';
+
+    switch (nombre) {
+      case 'colores':
+        this.temaSeleccionado = this.colores;
+        break;
+      case 'animales':
+        this.temaSeleccionado = this.animales;
+        break;
+      case 'numeros':
+        this.temaSeleccionado = this.numeros;
+        break;
+    }
+
+    this.mostrarTemas = false; // Ocultar menú
     console.log('Tema cambiado a:', this.temaActual);
   }
 
@@ -211,19 +238,18 @@ export class HomePage {
   }
 
   seleccionarIdioma() {
+    this.sppiner.mostrar();
     if (this.idiomaSeleccionado === 'es') {
-      this.sppiner.mostrar();
       this.idiomaSeleccionado = 'in';
       this.idiomaImagen = 'assets/botones/idioma-ingles.jpg';
     } else if (this.idiomaSeleccionado === 'in') {
-      this.sppiner.mostrar();
       this.idiomaSeleccionado = 'pg';
       this.idiomaImagen = 'assets/botones/idioma-portugues.png';
     } else {
-      this.sppiner.mostrar();
       this.idiomaSeleccionado = 'es';
       this.idiomaImagen = 'assets/botones/idioma-español.png';
     }
+    this.mostrarIdiomas = false;
     console.log('Tema cambiado a:', this.temaActual);
   }
 
