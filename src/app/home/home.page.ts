@@ -175,26 +175,7 @@ export class HomePage {
   temaSeleccionado = this.colores;
   idiomaSeleccionado: 'es' | 'in' | 'pg' = 'es';
   idiomaImagen = 'assets/botones/idioma-español.png';
-  /*
-  cambiarTema() {
-    if (this.temaActual === 'colores') {
-      this.sppiner.mostrar();
-      this.temaActual = 'animales';
-      this.temaImagen = '/assets/botones/animales.avif';
-      this.temaSeleccionado = this.animales;
-    } else if (this.temaActual === 'animales') {
-      this.sppiner.mostrar();
-      this.temaActual = 'numeros';
-      this.temaImagen = '/assets/botones/numeros.png';
-      this.temaSeleccionado = this.numeros;
-    } else {
-      this.sppiner.mostrar();
-      this.temaActual = 'colores'; // Volver a colores
-      this.temaImagen = '/assets/botones/colores.png';
-      this.temaSeleccionado = this.colores;
-    }
-    console.log('Tema cambiado a:', this.temaActual);
-  }*/
+
   seleccionarTema(nombre: any) {
     this.sppiner.mostrar(); // tu spinner
     this.temaActual = nombre;
@@ -237,18 +218,22 @@ export class HomePage {
     }
   }
 
-  seleccionarIdioma() {
-    this.sppiner.mostrar();
-    if (this.idiomaSeleccionado === 'es') {
-      this.idiomaSeleccionado = 'in';
-      this.idiomaImagen = 'assets/botones/idioma-ingles.jpg';
-    } else if (this.idiomaSeleccionado === 'in') {
-      this.idiomaSeleccionado = 'pg';
-      this.idiomaImagen = 'assets/botones/idioma-portugues.png';
-    } else {
-      this.idiomaSeleccionado = 'es';
-      this.idiomaImagen = 'assets/botones/idioma-español.png';
+  seleccionarIdioma(nombre: any) {
+    this.sppiner.mostrar(); // tu spinner
+    this.idiomaSeleccionado = nombre;
+
+    switch (nombre) {
+      case 'in':
+        this.idiomaImagen = 'assets/botones/idioma-ingles.jpg';
+        break;
+      case 'es':
+        this.idiomaImagen = 'assets/botones/idioma-español.png';
+        break;
+      case 'pg':
+        this.idiomaImagen = 'assets/botones/idioma-portugues.png';
+        break;
     }
+
     this.mostrarIdiomas = false;
     console.log('Tema cambiado a:', this.temaActual);
   }

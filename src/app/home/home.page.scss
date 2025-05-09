@@ -66,13 +66,6 @@ ion-content {
   object-fit: cover;
 }
 
-/* Horizontal: 3 columnas en lugar de 2 */
-@media screen and (min-aspect-ratio: 4/3) {
-  .grid-botones {
-    grid-template-columns: repeat(3, 1fr);
-    height: 80%;
-  }
-}
 .flotante-temas {
   position: relative;
 
@@ -150,5 +143,64 @@ ion-content {
 
   &:hover {
     transform: scale(1.05);
+  }
+}
+//--------------------------------------------------
+/* Ajustes especiales para landscape */
+@media screen and (orientation: landscape) {
+  .grid-botones {
+    grid-template-columns: repeat(3, 1fr);
+    height: 75%;
+  }
+
+  .botones-flotantes-horizontales {
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 6px;
+    gap: 10px;
+    position: relative;
+    z-index: 1000;
+  }
+
+  .flotante-horizontal {
+    flex: none;
+    width: 160px;
+    height: 80px;
+  }
+
+  .flotante-horizontal ion-button {
+    width: 100%;
+    height: 100%;
+  }
+
+  .panel-temas-horizontal {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(158, 158, 255);
+    padding: 10px;
+    border-radius: 10px;
+    gap: 16px;
+    width: auto;
+  }
+
+  .panel-temas-horizontal .tema-opcion {
+    width: 50px;
+    height: 50px;
+  }
+
+  .panel-temas-horizontal .tema-opcion img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .fondo-translucido {
+    z-index: 999;
   }
 }
