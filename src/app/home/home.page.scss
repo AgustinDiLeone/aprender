@@ -8,6 +8,14 @@ ion-content {
   flex-direction: column;
   overflow: hidden;
 }
+.barra-superior {
+  background-color: black;
+  height: 25px; // fallback a 20px si no hay notch
+  width: 100%;
+}
+.barra-telefono-horizontal {
+  display: none;
+}
 
 .grid-wrapper {
   flex: 1;
@@ -22,7 +30,7 @@ ion-content {
   grid-auto-rows: 1fr;
   gap: 6px;
   padding: 6px;
-  height: 90%;
+  height: 87%;
 }
 
 .boton-grande {
@@ -150,7 +158,18 @@ ion-content {
 @media screen and (orientation: landscape) {
   .grid-botones {
     grid-template-columns: repeat(3, 1fr);
-    height: 75%;
+    height: 70%;
+  }
+  .barra-superior {
+    background-color: black;
+    height: 25px; // fallback a 20px si no hay notch
+    width: 100%;
+  }
+  .barra-telefono-horizontal {
+    display: block;
+    background-color: black;
+    width: 25px; // fallback a 20px si no hay notch
+    height: 100%;
   }
 
   .botones-flotantes-horizontales {
@@ -190,8 +209,8 @@ ion-content {
   }
 
   .panel-temas-horizontal .tema-opcion {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
   }
 
   .panel-temas-horizontal .tema-opcion img {
